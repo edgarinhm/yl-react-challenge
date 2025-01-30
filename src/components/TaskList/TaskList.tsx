@@ -34,7 +34,7 @@ const TaskList = () => {
       {tasks.map((task, index) => {
         return (
           <TaskItem
-            key={`${index}-task.name`}
+            key={`${index}-${task.name}`}
             task={task}
             onDelete={handleDelete}
             onSelected={handleSelect}
