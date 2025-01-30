@@ -20,23 +20,49 @@ const TaskItem = ({ task, onDelete, onSelected }: TaskItemProps) => {
       }}
     >
       <input
+        style={{ cursor: "pointer" }}
         aria-label={`mark task ${task.name} has complete`}
         aria-checked={task.selected}
         type="checkbox"
         onClick={() => onSelected(task)}
         checked={task.selected}
       />
-      <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
-        <div>
-          <span>Name: </span>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          flexGrow: 1,
+          whiteSpace: "nowrap",
+          width: "150px",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            textTransform: "capitalize",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+        >
           {task.name}
         </div>
-        <div>
-          <span>State: </span>
+        <div
+          style={{
+            textTransform: "capitalize",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+        >
           {task.state}
         </div>
       </div>
-      <button aria-label="delete task button" onClick={() => onDelete(task.id)}>
+      <button
+        style={{ borderRadius: "4px", cursor: "pointer" }}
+        aria-label="delete task button"
+        onClick={() => onDelete(task.id)}
+      >
         Delete
       </button>
     </li>
